@@ -1,4 +1,6 @@
 name: Import translations from Crowdin
+permissions:
+  contents: read
 
 on:
   schedule:
