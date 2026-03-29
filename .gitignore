@@ -1,0 +1,25 @@
+# Node.js and NPM
+node_modules
+npm-debug.log*
+codekit-config.json
+
+# VitePress
+docs/.vitepress/cache
+docs/.vitepress/dist
+
+# macOS
+.DS_Store
+
+# torrent stuff
+torrents
+
+# Docker
+.docker/
+
+# Data directory - keep structure but ignore contents
+data/*
+!data/.gitkeep
+!data/README.md
+!data/backups/.gitkeep
+!data/cache/.gitkeep
+!data/logs/.gitkeep

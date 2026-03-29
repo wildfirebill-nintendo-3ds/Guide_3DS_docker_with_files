@@ -1,0 +1,36 @@
+services:
+  guide-3ds:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: guide-3ds
+    ports:
+      - "${PORT:-8080}:80"
+    volumes:
+      - ./data:/usr/share/nginx/html/data
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 3s
+      start_period: 5s
+      retries: 3
+
+  guide-3ds-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: guide-3ds-dev
+    ports:
+      - "${DEV_PORT:-5173}:5173"
+    volumes:
+      - ./docs:/app/docs
+      - ./data:/app/data
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+    profiles:
+      - dev

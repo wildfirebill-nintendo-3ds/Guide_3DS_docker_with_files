@@ -1,0 +1,26 @@
+{
+  "name": "guide-3ds",
+  "version": "1.0.0",
+  "description": "A complete guide to 3DS custom firmware",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "1.6.4"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "docker:build": "docker build -t guide-3ds .",
+    "docker:run": "docker run -p 8080:80 -v ./data:/usr/share/nginx/html/data guide-3ds",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:dev": "docker compose --profile dev up guide-3ds-dev",
+    "docker:logs": "docker compose logs -f",
+    "docker:restart": "docker compose restart"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "7.1.0",
+    "@fortawesome/free-solid-svg-icons": "7.1.0",
+    "@fortawesome/vue-fontawesome": "3.1.3"
+  }
+}
